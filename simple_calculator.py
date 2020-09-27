@@ -39,6 +39,11 @@ class Calculator:
             self.value **= (1./x)
         return self
 
+    def xor(self, *args):
+        for x in args:
+            self.value ^= x
+        return self
+
 
 if __name__ == '__main__':
     calculator = Calculator(100)
