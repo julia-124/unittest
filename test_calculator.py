@@ -31,9 +31,17 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator.root(2, 3).value, calc_value ** (1./6))
 
     def test_power_add_mul(self):
-        self.calculator = Calculator(random.random() * 200)
         calc_value = self.calculator.value
         self.assertAlmostEqual(self.calculator.power(2, 5).add(12, 18).multiply(5, 6).value, (calc_value ** 10 + 30) * 30)
+
+    def test_add_mul(self):
+        self.calculator = Calculator(random.random() * 20)
+        calc_value = self.calculator.value
+        self.assertEqual(self.calculator.add(12, 17).multiply(11, 12).value, (calc_value + 29) * 132)
+
+    def test_xor(self):
+        calc_value = self.calculator.value
+        self.assertEqual(self.calculator.xor(3, 4).value, calc_value ^ 7)
 
 
 if __name__ == '__main__':
