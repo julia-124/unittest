@@ -37,11 +37,15 @@ class TestCalculator(unittest.TestCase):
     def test_add_mul(self):
         self.calculator = Calculator(random.random() * 20)
         calc_value = self.calculator.value
-        self.assertEqual(self.calculator.add(12, 17).multiply(11, 12).value, (calc_value + 29) * 132)
+        self.assertAlmostEqual(self.calculator.add(12, 17).multiply(11, 12).value, (calc_value + 29) * 132)
 
     def test_xor(self):
         calc_value = self.calculator.value
         self.assertEqual(self.calculator.xor(3, 4).value, calc_value ^ 7)
+
+    def test_xor2(self):
+        calc_value = self.calculator.value
+        self.assertEqual(self.calculator.xor(3, 3).value, calc_value ^ 0)
 
 
 if __name__ == '__main__':
